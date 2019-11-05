@@ -28,7 +28,7 @@ public class manage_turn : MonoBehaviour {
             ActivateTurn();
         }
 
-        if (velocity < 0.005 && turnIsActive == true)
+        if (velocity < 0.05 && turnIsActive == true)
         {
             DeactivateTurn();
         }
