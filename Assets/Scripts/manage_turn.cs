@@ -5,7 +5,7 @@ using UnityEngine;
 public class manage_turn : MonoBehaviour {
 
     public bool turnIsActive = false;
-    float velocity = 0.0f;
+    public float velocity = 0.0f;
 
     public GameObject cueBall;
 
@@ -26,11 +26,14 @@ public class manage_turn : MonoBehaviour {
         if (velocity > 0 && turnIsActive == false)
         {
             ActivateTurn();
+            cueBall.GetComponent<CueBallScript>().aimingLine.enabled = false;
         }
 
         if (velocity < 0.05 && turnIsActive == true)
         {
+            cueBall.GetComponent<Rigidbody>().velocity.Set(0.0f, 0.0f, 0.0f);
             DeactivateTurn();
+            cueBall.GetComponent<CueBallScript>().aimingLine.enabled = true;
         }
 	}
 
