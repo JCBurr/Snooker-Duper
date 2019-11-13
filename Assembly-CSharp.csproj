@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CueBallScript.cs" />
     <Compile Include="Assets\Scripts\manage_turn.cs" />
-    <Compile Include="Assets\Scripts\Spawn_Object_Balls.cs" />
+    <Compile Include="Assets\Scripts\ResetObjectBallPosition.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Game Dev/Git Projects/Snooker Duper/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -35,19 +35,26 @@ public class CueBallScript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
+    void Update()
     {
         if (Input.GetMouseButtonUp(0) && gameManager.GetComponent<manage_turn>().turnIsActive == false)
         {
             HitBall();
         }
+    }
+
+    // FixedUpdate is called after the regular update function finishes. Raycast line rendering handled here makes the line render smoothly rather than
+    // seeing lots of lines jump across positions.
+    void FixedUpdate()
+    {
 
         if (gameManager.GetComponent<manage_turn>().velocity <= 0.05f)
         {
-            Physics.Raycast(cueBall.transform.position, new Vector3(mainCamera.transform.forward.x, 0.0f, mainCamera.transform.forward.z), out hit, 20);
+            Physics.SphereCast(cueBall.transform.position, 0.0002625f, new Vector3(mainCamera.transform.forward.x, 0.0f, mainCamera.transform.forward.z), out hit, 20);
 
             aimingLine.SetPosition(0, cueBall.transform.position);
             aimingLine.SetPosition(1, hit.point);
         }
-	}
+    }
+
 }
